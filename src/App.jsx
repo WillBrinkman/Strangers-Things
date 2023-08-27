@@ -14,6 +14,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route render={() => <div>Not Found</div>} />
         </Routes>

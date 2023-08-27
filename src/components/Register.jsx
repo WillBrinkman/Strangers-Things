@@ -11,7 +11,7 @@ function Register() {
       const result = await registerUser(username, password);
       if (result.success) {
         alert(result.data.message);
-        navigate.push('/login'); // Navigate to Login after successful registration
+        navigate('/login'); // Navigate to Login after successful registration
       } else {
         alert('Registration failed.');
       }
