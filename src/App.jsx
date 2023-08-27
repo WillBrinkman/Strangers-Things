@@ -13,6 +13,7 @@ function App() {
       <div>
         <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/register" element={<Register/>} />
           <Route path="/posts" element={<Posts/>} />
           <Route render={() => <div>Not Found</div>} />
         </Routes>
