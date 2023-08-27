@@ -19,7 +19,7 @@ function Posts() {
         <div key={post._id}>
           <h3>{post.title}</h3>
           <p>Info: {post.description}</p>
-          <p>Price: {post.price}</p>
+          <p>Price: ${post.price}</p>
           <p>{post.location}</p>
           <p>Listed By {post.author.username}</p>
 

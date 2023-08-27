@@ -47,3 +47,19 @@ const handleResponse = async (response) => {
     });
     return handleResponse(response);
   }
+
+  export const getUserData = async (token) => {
+    try {
+        const response = await fetch(`${BASE_URL}/users/me`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        console.error(err);
+        return null;
+    }
+}
