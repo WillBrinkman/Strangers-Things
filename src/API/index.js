@@ -44,17 +44,7 @@ const handleResponse = async (response) => {
     return handleResponse(response);
   }
   
-  export const createPost = async (token, postData) => {
-    const response = await fetch(`${BASE_URL}/posts`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify(postData)
-    });
-    return handleResponse(response);
-  }
+
   
   export const editPost = async (postId, token, updatedPostDetails) => {
     try {
@@ -76,6 +66,25 @@ const handleResponse = async (response) => {
     }
 }
 
+export const createPost = async (token, post) => {
+    try {
+        const response = await fetch(`${BASE_URL}/posts`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ post })
+        });
+
+        const result = await response.json();
+        return result;
+
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+};
 
   export const getUserData = async (token) => {
     try {
@@ -91,4 +100,6 @@ const handleResponse = async (response) => {
         console.error(err);
         return null;
     }
+
+    
 }

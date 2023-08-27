@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { fetchSinglePost } from '../API';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import EditPost from './EditPost';
+import DeletePostButton from './DeletePost';
+
 const SinglePost = (token) => {
     const [post, setPost] = useState(null);
     const { postId } = useParams();
+    const navigate = useNavigate();
     
     useEffect(() => {
         const fetchData = async () => {
@@ -17,6 +20,12 @@ const SinglePost = (token) => {
     const handleUpdate = (updatedPost) => {
         setPost(updatedPost);
     };
+
+    const handleDelete = (deletedPostId) => {
+        console.log(`Post with ID ${deletedPostId} deleted!`);
+        navigate('/');
+    };
+
     if (!post) {
         return <div>Loading...</div>; 
     }
@@ -27,6 +36,8 @@ const SinglePost = (token) => {
             <p>{post.description}</p>
             <p>Price: {post.price}</p>
             <EditPost postId={post._id} token={token} initialData={post} onPostUpdated={handleUpdate} />
+            <DeletePostButton postId={post._id} token={token} onPostDeleted={handleDelete} />
+
         </div>
     );
 }
