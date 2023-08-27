@@ -8,17 +8,19 @@ import UserProfile from './components/Register'
 import Home from './components/Home';
 import { Navigate } from 'react-router-dom';
 import SinglePost from './components/SinglePost';
+import NewPostForm from './components/NewPostForm';
 
 function App() {
   return (
       <div>
+        <NavBar/>
         <Routes>
         {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
           <Route path="/" element={<Posts/>} />
           <Route path="/post/:postId" element={<SinglePost/>} />
-          
+          <Route path="/new-post" element={<NewPostForm/>} />
           <Route render={() => <div>Not Found</div>} />
         </Routes>
       </div>

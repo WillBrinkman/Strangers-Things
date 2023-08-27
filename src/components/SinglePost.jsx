@@ -31,7 +31,7 @@ const SinglePost = (token) => {
     }
 
     return (
-        <div>
+        <div className='container'>
             <h1>{post.title}</h1>
             <p>{post.description}</p>
             <p>Price: {post.price}</p>

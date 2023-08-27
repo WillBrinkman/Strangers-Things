@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { editPost } from '../../API';
+import { editPost } from '../API';
 
 const EditPost = ({ postId, token, initialData, onPostUpdated }) => {
     const [formData, setFormData] = useState(initialData);

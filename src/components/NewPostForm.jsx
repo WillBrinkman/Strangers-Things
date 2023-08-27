@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
-import React, { useState } from 'react';
-import { createPost } from './api/posts';  // Update the path to the actual path to the API function
+import { createPost } from '../API';  
 
 const NewPostForm = ({ token, onPostCreated }) => {
     const [title, setTitle] = useState('');
@@ -35,7 +33,7 @@ const NewPostForm = ({ token, onPostCreated }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="container" onSubmit={handleSubmit}>
             <div>
                 <label>Title:</label>
                 <input value={title} onChange={(e) => setTitle(e.target.value)} required />

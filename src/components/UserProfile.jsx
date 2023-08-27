@@ -22,10 +22,10 @@ const UserProfile = () => {
     }
 
     return (
-        <div className="user-profile">
+        <div>
             <h2>Welcome, {userData.username}!</h2>
             
-            <div className="user-posts">
+            <div className="container">
                 <h3>Your Posts:</h3>
                 <ul>
                     {userData.posts.map(post => (

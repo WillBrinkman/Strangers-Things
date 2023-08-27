@@ -16,9 +16,10 @@ function Posts() {
   }, []);
 
   return (
-    <div>
+    <div className='container
+    '>
       {posts.map(post => (
-        <div key={post._id}>
+        <div className='post' key={post._id}>
                     <Link to={`/post/${post._id}`}>
                         <h2>{post.title}</h2>
                     </Link>
