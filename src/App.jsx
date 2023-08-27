@@ -7,15 +7,18 @@ import SingleProfile from './components/Register'
 import UserProfile from './components/Register'
 import Home from './components/Home';
 import { Navigate } from 'react-router-dom';
+import SinglePost from './components/SinglePost';
 
 function App() {
   return (
       <div>
         <Routes>
-        <Route path="/" element={<Home/>}/>
+        {/* <Route path="/" element={<Home/>}/> */}
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-          <Route path="/posts" element={<Posts/>} />
+          <Route path="/" element={<Posts/>} />
+          <Route path="/post/:postId" element={<SinglePost/>} />
+          
           <Route render={() => <div>Not Found</div>} />
         </Routes>
       </div>

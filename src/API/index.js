@@ -14,6 +14,14 @@ const handleResponse = async (response) => {
     return handleResponse(response);
   }
   
+  export const fetchSinglePost = async (postId) => {
+
+    const response = await fetch(`${BASE_URL}/posts/${postId}`);
+    const result = await response.json();
+    console.log(result)
+    return result;
+};
+
   export const registerUser = async (username, password) => {
     const response = await fetch(`${BASE_URL}/users/register`, {
       method: "POST",
@@ -47,6 +55,27 @@ const handleResponse = async (response) => {
     });
     return handleResponse(response);
   }
+  
+  export const editPost = async (postId, token, updatedPostDetails) => {
+    try {
+        const response = await fetch(`${BASE_URL}/posts/${postId}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                post: updatedPostDetails
+            })
+        });
+        const result = await response.json();
+        return result;
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
 
   export const getUserData = async (token) => {
     try {

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchPosts } from '../API';
+import SinglePost from './SinglePost';
 
 function Posts() {
   const [posts, setPosts] = useState([]);
@@ -17,7 +19,9 @@ function Posts() {
     <div>
       {posts.map(post => (
         <div key={post._id}>
-          <h3>{post.title}</h3>
+                    <Link to={`/post/${post._id}`}>
+                        <h2>{post.title}</h2>
+                    </Link>
           <p>Info: {post.description}</p>
           <p>Price: ${post.price}</p>
           <p>{post.location}</p>
