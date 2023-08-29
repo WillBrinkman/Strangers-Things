@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-
-// Import the API calls
 import { getUserData } from '../API';
 
 const UserProfile = () => {
     const [userData, setUserData] = useState(null);
-    const token = localStorage.getItem('userToken');  // Assuming you store the token in localStorage
+    const token = localStorage.getItem('token');
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getUserData(token);
-            if (data) {
-                setUserData(data);
+            const result = await getUserData(token);
+            console.log(result)
+            if (result) {
+                setUserData(result.data);
             }
         }
         fetchData();
@@ -28,7 +27,7 @@ const UserProfile = () => {
             <div className="container">
                 <h3>Your Posts:</h3>
                 <ul>
-                    {userData.posts.map(post => (
+                    {userData.posts && userData.posts.map(post => (
                         <li key={post._id}>
                             <strong>{post.title}</strong>: {post.description}
                             <br />

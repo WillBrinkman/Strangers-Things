@@ -22,7 +22,6 @@ const EditPost = ({ postId, token, initialData, onPostUpdated }) => {
     return (
         <form onSubmit={handleSubmit}>
             <input name="title" value={formData.title} onChange={handleInputChange} />
-            {/* Add other input fields similarly */}
             <button type="submit">Update Post</button>
         </form>
     );

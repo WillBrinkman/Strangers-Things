@@ -20,14 +20,13 @@ function Posts() {
     '>
       {posts.map(post => (
         <div className='post' key={post._id}>
-                    <Link to={`/post/${post._id}`}>
-                        <h2>{post.title}</h2>
-                    </Link>
+            <Link to={`/post/${post._id}`}>
+                <h2>{post.title}</h2>
+            </Link>
           <p>Info: {post.description}</p>
-          <p>Price: ${post.price}</p>
-          <p>{post.location}</p>
+          <p>Price: {post.price}</p>
+          <p>Location: {post.location}</p>
           <p>Listed By {post.author.username}</p>
-
         </div>
       ))}
     </div>

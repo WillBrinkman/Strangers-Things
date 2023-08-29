@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { logIn } from "./authUtils";
 import { loginUser } from "../API";
 
 function Login() {
@@ -10,10 +10,11 @@ function Login() {
   
     const handleLogin = async () => {
       const result = await loginUser(username, password);
+      console.log(result)
       if (result.success) {
         alert(result.data.message);
-        localStorage.setItem('token', result.data.token);
-        navigate('/profile'); 
+        logIn(result.data.token);
+                navigate('/profile'); 
       } else {
         alert('Login failed.');
       }
